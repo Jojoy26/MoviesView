@@ -47,12 +47,14 @@ export const MoviesProvider = ({children}: Props) => {
             
             try{
                 const result = await fetch(apiPath+`s=${name}&page=${page}`);
+                console.log(result)
                 const json = await result.json();
 
                 if(Boolean(json.Error)){
                     setError(`${json.Error}`)
                     return;
                 }
+                
 
                 const list: Movie[] = json.Search.map((item: any, index: number) => {
                     return {
@@ -67,7 +69,7 @@ export const MoviesProvider = ({children}: Props) => {
                 setPages(Math.round(json.totalResults / 10));
                 setListMovies(list);
             } catch(e){
-                console.log(e);
+                setError("We were unable to load movies '-'");
             }
                
         }    

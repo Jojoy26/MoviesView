@@ -65,6 +65,12 @@ export const MovieHover = styled.div<Props>`
 
     padding: 8px;
 
+    ${HeartIcon}{
+        opacity:${(props) => props.noImage ? "0" : "1"};
+    }
+
+    border: ${(props) => props.noImage ? "1px solid #777" : "0"};
+
     &:hover {
         opacity: 1;
         border: ${(props) => props.noImage ? "1px solid #fff" : "0"};
@@ -73,11 +79,9 @@ export const MovieHover = styled.div<Props>`
         }
     }
 
-    border: ${(props) => props.noImage ? "1px solid #777" : "0"};
+    
 
-    ${HeartIcon}{
-        opacity:${(props) => props.noImage ? "0" : "1"};
-    }
+    
     
 
 `

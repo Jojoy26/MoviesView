@@ -15,12 +15,10 @@ const MoviesController = ({search, page}: Props) => {
 
     const handleNextPage = () => {
         navigate(`/search/${search}/${parseInt(page)+1}`);
-        getMovies(search, (parseInt(page)+1).toString());
     }
 
     const handlePreviousPage = () => {
         navigate(`/search/${search}/${parseInt(page)-1}`);
-            getMovies(search, (parseInt(page)-1).toString());
     }
 
     return (
